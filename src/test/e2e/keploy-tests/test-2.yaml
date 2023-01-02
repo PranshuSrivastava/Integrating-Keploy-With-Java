@@ -1,0 +1,52 @@
+version: api.keploy.io/v1beta1
+kind: Http
+name: test-2
+spec:
+    metadata: {}
+    req:
+        method: GET
+        proto_major: 1
+        proto_minor: 1
+        url: /api/todo/task/1
+        header:
+            accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+            accept-encoding: gzip, deflate, br
+            accept-language: en-GB,en-US;q=0.9,en;q=0.8
+            connection: keep-alive
+            cookie: hubspotutk=d748569057d6cc702470d589c51eee65; __hssrc=1; __hstc=181257784.d748569057d6cc702470d589c51eee65.1672638564155.1672638564155.1672640650914.2
+            host: localhost:8080
+            sec-ch-ua: '"Not?A_Brand";v="8", "Chromium";v="108", "Google Chrome";v="108"'
+            sec-ch-ua-mobile: ?0
+            sec-ch-ua-platform: '"Linux"'
+            sec-fetch-dest: document
+            sec-fetch-mode: navigate
+            sec-fetch-site: none
+            sec-fetch-user: ?1
+            upgrade-insecure-requests: "1"
+            user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36
+        body: ""
+    resp:
+        status_code: 200
+        header: {}
+        body: |-
+            {
+              "name" : "name1",
+              "description" : "This is name 1",
+              "_links" : {
+                "self" : {
+                  "href" : "http://localhost:8080/api/todo/task/1"
+                },
+                "all tasks" : {
+                  "href" : "http://localhost:8080/api/todo/tasks"
+                }
+              }
+            }
+        status_message: OK
+        proto_major: 1
+        proto_minor: 1
+    objects:
+        - type: error
+          data: H4sIAAAAAAAA/wEAAP//AAAAAAAAAAA=
+    assertions:
+        noise: []
+    created: 1672662262

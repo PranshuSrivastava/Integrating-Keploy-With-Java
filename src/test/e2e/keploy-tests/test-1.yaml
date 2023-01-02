@@ -1,0 +1,93 @@
+version: api.keploy.io/v1beta1
+kind: Http
+name: test-1
+spec:
+    metadata: {}
+    req:
+        method: GET
+        proto_major: 1
+        proto_minor: 1
+        url: /api/todo/tasks
+        header:
+            accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+            accept-encoding: gzip, deflate, br
+            accept-language: en-GB,en-US;q=0.9,en;q=0.8
+            cache-control: max-age=0
+            connection: keep-alive
+            cookie: hubspotutk=d748569057d6cc702470d589c51eee65; __hssrc=1; __hstc=181257784.d748569057d6cc702470d589c51eee65.1672638564155.1672638564155.1672640650914.2
+            host: localhost:8080
+            sec-ch-ua: '"Not?A_Brand";v="8", "Chromium";v="108", "Google Chrome";v="108"'
+            sec-ch-ua-mobile: ?0
+            sec-ch-ua-platform: '"Linux"'
+            sec-fetch-dest: document
+            sec-fetch-mode: navigate
+            sec-fetch-site: none
+            sec-fetch-user: ?1
+            upgrade-insecure-requests: "1"
+            user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36
+        body: ""
+    resp:
+        status_code: 200
+        header: {}
+        body: |-
+            {
+              "_embedded" : {
+                "task" : [ {
+                  "name" : "name1",
+                  "description" : "This is name 1",
+                  "_links" : {
+                    "self" : {
+                      "href" : "http://localhost:8080/api/task/1"
+                    },
+                    "task" : {
+                      "href" : "http://localhost:8080/api/task/1"
+                    }
+                  }
+                }, {
+                  "name" : "name2",
+                  "description" : "This is name 2",
+                  "_links" : {
+                    "self" : {
+                      "href" : "http://localhost:8080/api/task/2"
+                    },
+                    "task" : {
+                      "href" : "http://localhost:8080/api/task/2"
+                    }
+                  }
+                }, {
+                  "name" : "name3",
+                  "description" : "This is name 3",
+                  "_links" : {
+                    "self" : {
+                      "href" : "http://localhost:8080/api/task/3"
+                    },
+                    "task" : {
+                      "href" : "http://localhost:8080/api/task/3"
+                    }
+                  }
+                } ]
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "http://localhost:8080/api/todo/tasks?page=0&size=20"
+                }
+              },
+              "page" : {
+                "size" : 20,
+                "totalElements" : 3,
+                "totalPages" : 1,
+                "number" : 0
+              }
+            }
+        status_message: OK
+        proto_major: 1
+        proto_minor: 1
+    objects:
+        - type: error
+          data: H4sIAAAAAAAA/wEAAP//AAAAAAAAAAA=
+    assertions:
+        noise:
+            - body._embedded.task._links.self.href
+            - body._embedded.task._links.task.href
+            - body._embedded.task.name
+    created: 1672662256
