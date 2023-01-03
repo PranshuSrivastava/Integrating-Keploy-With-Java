@@ -6,11 +6,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 
+import java.sql.SQLException;
+
 @SpringBootApplication
 @Import(KeployMiddleware.class)
 public class TodoApplication {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
+		KDriver.WrapDriver();
 		SpringApplication.run(TodoApplication.class, args);
 	}
-
 }
