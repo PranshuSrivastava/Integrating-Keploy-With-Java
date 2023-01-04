@@ -1,0 +1,93 @@
+version: api.keploy.io/v1beta1
+kind: Http
+name: test-5
+spec:
+    metadata: {}
+    req:
+        method: GET
+        proto_major: 1
+        proto_minor: 1
+        url: /api/todo/tasks
+        header:
+            accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8
+            accept-encoding: gzip, deflate, br
+            accept-language: en-GB,en
+            connection: keep-alive
+            cookie: connect.sid=s%3AQDiXHL7p5PmCBgiCoRKgcPECjh6TS7Ke.sIy6FdXpze457l%2FXjceURxSI9DwkS8VTcqdYztFXi1g; ab.storage.userId.7af503ae-0c84-478f-98b0-ecfff5d67750=%7B%22g%22%3A%226989544%22%2C%22c%22%3A1662096356728%2C%22l%22%3A1662096356730%7D; ab.storage.deviceId.7af503ae-0c84-478f-98b0-ecfff5d67750=%7B%22g%22%3A%22a6b6bd21-b2b0-e451-1c02-9210279ee712%22%2C%22c%22%3A1662096356730%2C%22l%22%3A1662096356730%7D; ab.storage.sessionId.7af503ae-0c84-478f-98b0-ecfff5d67750=%7B%22g%22%3A%2257682c71-75a7-3043-0a9d-78503ccd0687%22%2C%22e%22%3A2163060398284%2C%22c%22%3A1662096356729%2C%22l%22%3A1663060398284%7D; JSESSIONID=8AC8E9DA530D0CD5EB148CF1C2AFB2E7
+            host: localhost:8080
+            sec-fetch-dest: document
+            sec-fetch-mode: navigate
+            sec-fetch-site: none
+            sec-fetch-user: ?1
+            sec-gpc: "1"
+            upgrade-insecure-requests: "1"
+            user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36
+        body: ""
+    resp:
+        status_code: 200
+        header: {}
+        body: |-
+            {
+              "_embedded" : {
+                "task" : [ {
+                  "name" : "name1",
+                  "description" : "This is name 1",
+                  "_links" : {
+                    "self" : {
+                      "href" : "http://localhost:8080/api/task/1"
+                    },
+                    "task" : {
+                      "href" : "http://localhost:8080/api/task/1"
+                    }
+                  }
+                }, {
+                  "name" : "name2",
+                  "description" : "This is name 2",
+                  "_links" : {
+                    "self" : {
+                      "href" : "http://localhost:8080/api/task/2"
+                    },
+                    "task" : {
+                      "href" : "http://localhost:8080/api/task/2"
+                    }
+                  }
+                }, {
+                  "name" : "name3",
+                  "description" : "This is name 3",
+                  "_links" : {
+                    "self" : {
+                      "href" : "http://localhost:8080/api/task/3"
+                    },
+                    "task" : {
+                      "href" : "http://localhost:8080/api/task/3"
+                    }
+                  }
+                } ]
+              },
+              "_links" : {
+                "self" : {
+                  "href" : "http://localhost:8080/api/todo/tasks?page=0&size=20"
+                }
+              },
+              "page" : {
+                "size" : 20,
+                "totalElements" : 3,
+                "totalPages" : 1,
+                "number" : 0
+              }
+            }
+        status_message: OK
+        proto_major: 1
+        proto_minor: 1
+    objects:
+        - type: error
+          data: H4sIAAAAAAAA/wEAAP//AAAAAAAAAAA=
+    mocks:
+        - test-5-0
+        - test-5-1
+    assertions:
+        noise:
+            - body._embedded.task._links.task.href
+            - body._embedded.task.name
+            - body._embedded.task._links.self.href
+    created: 1672733762
